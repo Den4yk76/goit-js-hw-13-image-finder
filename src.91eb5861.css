@@ -1,0 +1,2 @@
+.gallery{display:flex;flex-wrap:wrap;justify-content:space-around;margin:0;padding:0;list-style:none}.photo-card{display:inline-flex;flex-direction:column;width:450px;margin:10px}.stats{border:2px solid red;text-align:center}.stats,.stats-item{display:inline-block}.stats-item{padding:0;margin:15px}.is-hidden{display:none}
+/*# sourceMappingURL=/goit-js-hw-13-image-finder/src.91eb5861.css.map */
