@@ -1,0 +1,47 @@
+/*
+ * Главный файл стилей.
+ * Все паршалы подключаются сюда.
+ */
+
+// Стили для файла с примером HTML-фрагмента
+// @import './example';
+
+.js-list {
+
+}
+
+.img{
+    
+}
+
+.gallery{
+    display: flex;                   
+    flex-wrap: wrap;                   
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.photo-card {
+    display: inline-flex;
+    flex-direction: column;
+    width: 450px;
+    margin: 10px;
+}
+
+.stats{
+    display: inline-block;
+    border: 2px solid red;
+    text-align: center;
+}
+
+.stats-item {
+    display: inline-block;
+    padding: 0;
+    margin: 15px;
+}
+
+.is-hidden{
+    display: none;
+}
