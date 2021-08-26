@@ -5,29 +5,28 @@ import { fetchApi } from './js/apiService';
 
 let pageNum = 1;
 
-refs.input.addEventListener('keypress', makeMarkup);
+// refs.input.addEventListener('keypress', makeMarkup);
+refs.form.addEventListener('submit', makeMarkup);
 refs.loadMoreBtn.addEventListener('click', makeMoreMarkup);
 
 function makeMarkup(e) {
-  if (e.keyCode === 13 && refs.input.value) {
-    e.preventDefault();
-    refs.gallery.innerHTML = '';
-    pageNum = 1;
+  e.preventDefault();
+  refs.gallery.innerHTML = '';
+  pageNum = 1;
 
-    fetchApi(e.currentTarget.value, pageNum)
-      .then(data => {
-        if (data.hits.length === 0) {
-          console.log('Ничего не найдено!');
-        } else {
-          refs.gallery.insertAdjacentHTML('beforeend', listMarkup(data.hits));
-          refs.loadMoreBtn.classList.remove('is-hidden');
-        }
-      })
-      .then(() => pageNum++)
-      .catch(err => {
-        console.log('err', err);
-      });
-  }
+  fetchApi(refs.input.value, pageNum)
+    .then(data => {
+      if (data.hits.length === 0) {
+        console.log('Ничего не найдено!');
+      } else {
+        refs.gallery.insertAdjacentHTML('beforeend', listMarkup(data.hits));
+        refs.loadMoreBtn.classList.remove('is-hidden');
+      }
+    })
+    .then(() => pageNum++)
+    .catch(err => {
+      console.log('err', err);
+    });
 }
 
 function makeMoreMarkup(e) {
