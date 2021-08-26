@@ -1,2 +1,0 @@
-.gallery{display:flex;flex-wrap:wrap;justify-content:space-around;margin:0;padding:0;list-style:none}.photo-card{display:inline-flex;flex-direction:column;width:450px;margin:10px}.stats{border:2px solid #ee9044;text-align:center}.stats,.stats-item{display:inline-block}.stats-item{padding:0;margin:15px}.load-more-btn{display:block;margin:0 auto;width:120px;height:50px;border:none;border-radius:5%;background-color:#ee9044;font-size:18px;color:#fff;cursor:pointer}.is-hidden{display:none}
-/*# sourceMappingURL=/goit-js-hw-13-image-finder/src.28400f75.css.map */
