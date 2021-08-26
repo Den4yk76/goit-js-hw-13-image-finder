@@ -9,13 +9,15 @@ refs.input.addEventListener('keypress', makeMarkup);
 refs.loadMoreBtn.addEventListener('click', makeMoreMarkup);
 
 function makeMarkup(e) {
-  if (e.keyCode === 13) {
+  if (e.keyCode === 13 && refs.input.value) {
     e.preventDefault();
+    refs.gallery.innerHTML = '';
+    pageNum = 1;
 
     fetchApi(e.currentTarget.value, pageNum)
       .then(data => {
         if (data.hits.length === 0) {
-          return;
+          console.log('Ничего не найдено!');
         } else {
           refs.gallery.insertAdjacentHTML('beforeend', listMarkup(data.hits));
           refs.loadMoreBtn.classList.remove('is-hidden');
