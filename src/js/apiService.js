@@ -1,5 +1,3 @@
-import { refs } from './refs';
-
 const API_KEY = '23081749-b9f3d38fc4718cbd45a8beed9';
 const BASE_URL = 'https://pixabay.com/api/?image_type=photo&orientation=horizontal';
 
