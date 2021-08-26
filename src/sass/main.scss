@@ -6,14 +6,6 @@
 // Стили для файла с примером HTML-фрагмента
 // @import './example';
 
-.js-list {
-
-}
-
-.img{
-    
-}
-
 .gallery{
     display: flex;                   
     flex-wrap: wrap;                   
@@ -32,7 +24,7 @@
 
 .stats{
     display: inline-block;
-    border: 2px solid red;
+    border: 2px solid rgb(238, 144, 68);
     text-align: center;
 }
 
@@ -40,6 +32,18 @@
     display: inline-block;
     padding: 0;
     margin: 15px;
+}
+
+.load-more-btn {    
+    display: block;
+    margin: 0 auto;    width: 120px;
+    height: 50px;
+    border: none;
+    border-radius: 5%;
+    background-color: rgb(238, 144, 68);
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
 }
 
 .is-hidden{

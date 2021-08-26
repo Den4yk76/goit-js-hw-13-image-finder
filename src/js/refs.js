@@ -2,5 +2,5 @@ export const refs = {
   gallery: document.querySelector('.gallery'),
   input: document.querySelector('.js-input'),
   form: document.querySelector('.search-form'),
-  loadMoreBtn: document.querySelector('#load-more-btn'),
+  loadMoreBtn: document.querySelector('.load-more-btn'),
 };
