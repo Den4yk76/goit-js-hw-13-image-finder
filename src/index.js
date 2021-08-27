@@ -16,27 +16,36 @@ function makeMarkup(e) {
   e.preventDefault();
   refs.gallery.innerHTML = '';
   pageNum = 1;
+  sessionStorage.setItem('searchQuery', refs.input.value);
+  const searchInput = sessionStorage.getItem('searchQuery');
 
-  fetchApi(refs.input.value, pageNum)
-    .then(data => {
-      if (data.hits.length === 0) {
-        error({ text: `Ничего не найдено!` });
-      } else {
-        refs.gallery.insertAdjacentHTML('beforeend', listMarkup(data.hits));
-        refs.loadMoreBtn.classList.remove('is-hidden');
-        success({ text: `Ваш ответ по запросу ${refs.input.value} :)` });
-      }
-    })
-    .then(() => pageNum++)
-    .catch(err => {
-      error({ text: `Возникла ошибка ${err}. Попробуйте ещё` });
-    });
+  if (searchInput) {
+    fetchApi(searchInput, pageNum)
+      .then(data => {
+        if (data.hits.length === 0) {
+          error({ text: `Ничего не найдено!` });
+          refs.loadMoreBtn.classList.add('is-hidden');
+          refs.input.value = '';
+        } else {
+          refs.gallery.insertAdjacentHTML('beforeend', listMarkup(data.hits));
+          refs.loadMoreBtn.classList.remove('is-hidden');
+          success({ text: `Ваш ответ по запросу ${refs.input.value} :)` });
+          refs.input.value = '';
+        }
+      })
+      .then(() => pageNum++)
+      .catch(err => {
+        error({ text: `Возникла ошибка ${err}. Попробуйте ещё` });
+      });
+  } else refs.loadMoreBtn.classList.add('is-hidden');
 }
 
 function makeMoreMarkup(e) {
   e.preventDefault();
 
-  fetchApi(refs.input.value, pageNum)
+  const moreInfoInput = sessionStorage.getItem('searchQuery');
+
+  fetchApi(moreInfoInput, pageNum)
     .then(data => {
       refs.gallery.insertAdjacentHTML('beforeend', listMarkup(data.hits));
     })
