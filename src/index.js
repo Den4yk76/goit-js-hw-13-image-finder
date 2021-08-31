@@ -5,6 +5,7 @@ import { fetchApi } from './js/apiService';
 import { success, error, defaults } from '../node_modules/@pnotify/core/dist/PNotify.js';
 import '../node_modules/@pnotify/core/dist/BrightTheme.css';
 import '../node_modules/@pnotify/confirm/dist/PNotifyConfirm.css';
+import * as basicLightbox from 'basiclightbox';
 
 defaults.delay = 1500;
 let pageNum = 1;
@@ -20,8 +21,9 @@ function makeMarkup(e) {
   const searchInput = sessionStorage.getItem('searchQuery');
 
   if (searchInput) {
-    fetchApi(searchInput, pageNum)
+    return fetchApi(searchInput, pageNum)
       .then(data => {
+        console.log('data: ', data);
         if (data.hits.length === 0) {
           error({ text: `Ничего не найдено!` });
           refs.loadMoreBtn.classList.add('is-hidden');
