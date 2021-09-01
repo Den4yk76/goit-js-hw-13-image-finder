@@ -8,3 +8,8 @@ export function fetchApi(searchQuery, pageNum) {
       .catch(err => error({ text: `Возникла ошибка ${err}. Попробуйте ещё` }));
   }
 }
+export function fetchLargeImgUrl(id) {
+  return fetch(`${BASE_URL}&id=${id}&key=${API_KEY}`)
+    .then(response => response.json())
+    .catch(err => error({ text: `Возникла ошибка ${err}. Попробуйте ещё` }));
+}
