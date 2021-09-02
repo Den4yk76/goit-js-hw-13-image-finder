@@ -67,8 +67,10 @@ function onClick(e) {
   fetchLargeImgUrl(e.target.getAttribute('data-id'))
     .then(dating => dating.hits[0])
     .then(res => {
-      console.log(res);
+      const smallUrl = e.target.src;
+      e.target.src = res.largeImageURL;
       const instance = basicLightbox.create(e.target.outerHTML);
       instance.show();
+      e.target.src = smallUrl;
     });
 }
